@@ -10,9 +10,9 @@ class ClassARestController {
     constructor() {
         this.port = process.env.PORT || 3021;
         this.services = {
-            bikes: 'http://localhost:3031/',
-            food: 'http://localhost:3032/',
-            toys: 'http://localhost:3033/'
+            bikes: 'http://localhost:3031/bikes',
+            food: 'http://localhost:3032/food',
+            toys: 'http://localhost:3033/toys'
         };
 
         this.bikeDao = new BikeDao();
@@ -40,20 +40,21 @@ class ClassARestController {
         let items;
 
         try {
-            // const backEndResp = await axios.get(`${this.services[service]}/all/${location}`);
-            // const response = backEndResp.data;
+            const backEndResp = await axios.get(`${this.services[service]}/all/${location}`);
+            const response = backEndResp.data;
+            res.json(response);
 
-            if (service == "bikes") {
-                items = this.bikeDao.queryForAllBikes();
-            }
-            else if (service == "food") {
-                items = this.foodDao.queryForAllFood();
-            }
-            else if (service == "toys") {
-                items = this.toyDao.queryForAllToys();
-            }
+            // if (service == "bikes") {
+            //     items = this.bikeDao.queryForAllBikes();
+            // }
+            // else if (service == "food") {
+            //     items = this.foodDao.queryForAllFood();
+            // }
+            // else if (service == "toys") {
+            //     items = this.toyDao.queryForAllToys();
+            // }
 
-            res.json(items);
+            // res.json(items);
 
         } catch (err) {
             console.error(`Error on GET all locations for ${service}: ${err}`);
@@ -64,11 +65,11 @@ class ClassARestController {
     async getTeamInfo(req, res) {
         const { service } = req.params;
         try {
-            // const response = await axios.get(`${this.services[service]}/team`);
-            // res.json(response.data);
+            const response = await axios.get(`${this.services[service]}/team`);
+            res.json(response.data);
 
-            const items = this.teamDao.queryForTeam();
-            res.json(items);
+            // const items = this.teamDao.queryForTeam();
+            // res.json(items);
             
         } catch (err) {
             console.error(`Error on GET team info for ${service}: ${err}`);
