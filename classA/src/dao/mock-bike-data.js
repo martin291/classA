@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const bikeFile = `data/bikes.json`;
+const bikeFile = `src/data/bikes.json`;
 
 class BikeDao {
     constructor() {

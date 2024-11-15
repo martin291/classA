@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "jasmine spec/service/contact-rest-controller.spec.js",
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "author": "Martin Derwin & Patricija Shalkauskaite",
   "license": "ISC"

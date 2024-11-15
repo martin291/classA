@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const foodFile = `data/food.json`;
+const foodFile = `src/data/food.json`;
 
 class FoodDao {
     constructor() {

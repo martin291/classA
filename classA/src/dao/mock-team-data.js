@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const teamFile = `data/team.json`;
+const teamFile = `src/data/team.json`;
 
 class TeamDao {
     constructor() {

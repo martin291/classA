@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const toyFile = `data/toys.json`;
+const toyFile = `src/data/toys.json`;
 
 class ToyDao {
     constructor() {
